@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>FastMove by KSD | Local Moving & Delivery – Lawrenceville, GA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FastMove by KSD – flat-fee local moving and delivery service based in Lawrenceville, GA. Simple pricing, fast pickup, and convenient small moves." />
+  <style>
+    :root {
+      --fastmove-navy: #12263A;
+      --fastmove-orange: #F97316;
+      --fastmove-light: #F4F4F5;
+      --fastmove-accent: #0EA5E9;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #0f172a;
+      line-height: 1.5;
+    }
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+    header {
+      padding: 14px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--fastmove-navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fff7ed, #f97316);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #ffffff;
+    }
+    .tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    main {
+      flex: 1;
+      padding: 20px;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto 24px auto;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: minmax(0, 1fr); }
+    }
+    .hero-text h1 {
+      font-size: clamp(26px, 5vw, 34px);
+      line-height: 1.1;
+      margin: 0 0 10px 0;
+      color: var(--fastmove-navy);
+    }
+    .hero-text h1 span { color: var(--fastmove-orange); }
+    .hero-text p {
+      margin: 0 0 14px 0;
+      color: #4b5563;
+      font-size: 15px;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fef3c7;
+      border: 1px solid #facc15;
+      font-size: 12px;
+      color: #854d0e;
+      margin-bottom: 6px;
+    }
+    .hero-pill span { font-size: 16px; }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.12s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--fastmove-orange), #fb923c);
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(248, 113, 22, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(248, 113, 22, 0.4);
+    }
+    .btn-outline {
+      background: #ffffff;
+      color: var(--fastmove-navy);
+      border: 1px solid #d1d5db;
+    }
+    .btn-outline:hover {
+      border-color: var(--fastmove-orange);
+      color: var(--fastmove-orange);
+    }
+    .note {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 6px;
+    }
+    .hero-card {
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      background: radial-gradient(circle at top left, #eff6ff, #ffffff);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      font-size: 13px;
+    }
+    .hero-card h2 {
+      margin: 0 0 8px 0;
+      font-size: 15px;
+      color: var(--fastmove-navy);
+    }
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #dbeafe;
+    }
+    .pricing-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+    }
+    .pricing-card {
+      border-radius: var(--radius-md);
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 12px 12px 14px;
+    }
+    .pricing-card span.label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+    }
+    .pricing-card h3 {
+      margin: 4px 0 4px;
+      font-size: 16px;
+      color: var(--fastmove-navy);
+    }
+    .pricing-card p {
+      margin: 0;
+      font-size: 13px;
+      color: #6b7280;
+    }
+    .pricing-card strong {
+      font-size: 18px;
+      color: var(--fastmove-orange);
+    }
+    .how-it-works {
+      margin-top: 26px;
+      padding: 14px 16px;
+      border-radius: var(--radius-lg);
+      background: #f9fafb;
+      border: 1px dashed #d1d5db;
+      font-size: 13px;
+    }
+    .how-it-works h2 {
+      margin: 0 0 8px 0;
+      font-size: 15px;
+      color: var(--fastmove-navy);
+    }
+    .how-it-works ol {
+      margin: 0 0 0 18px;
+      padding: 0;
+    }
+    .how-it-works li { margin-bottom: 4px; }
+    footer {
+      padding: 10px 20px 18px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 11px;
+      color: #6b7280;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-icon">🚚</div>
+        <div>
+          FASTMOVE<br />
+          <span style="font-weight:500;font-size:11px;letter-spacing:0.12em;">BY KSD</span>
+        </div>
+      </div>
+      <div class="tag">Lawrenceville, GA</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <div class="hero-pill">
+            <span>⚡</span> Flat-fee local moving & delivery
+          </div>
+          <h1>Fast, simple <span>pickups & small moves</span> around Lawrenceville, GA.</h1>
+          <p>
+            Store pickups (Goodwill, Habitat, furniture outlets) and small home moves made easy.
+            Up-front flat pricing based on distance — no hourly surprises.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:+12293375465">
+              📞 Call to book
+            </a>
+            <a class="btn btn-outline" href="sms:+12293375465">
+              💬 Text for a quote
+            </a>
+          </div>
+          <p class="note">Service base: Lawrenceville, GA • Pickups within 40 miles</p>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Flat-fee pricing (pickup ➝ drop-off)</h2>
+          <div class="hero-chip-row">
+            <span class="chip">Same-day when available</span>
+            <span class="chip">Store & home pickups</span>
+            <span class="chip">Small moves only</span>
+          </div>
+          <div class="pricing-grid" style="margin-top:10px;">
+            <div class="pricing-card">
+              <span class="label">0–10 miles</span>
+              <h3><strong>$55</strong></h3>
+              <p>Perfect for short hops across town.</p>
+            </div>
+            <div class="pricing-card">
+              <span class="label">10–20 miles</span>
+              <h3><strong>$75</strong></h3>
+              <p>Ideal for nearby city-to-city delivery.</p>
+            </div>
+            <div class="pricing-card">
+              <span class="label">20–30 miles</span>
+              <h3><strong>$100</strong></h3>
+              <p>Great for wider metro Atlanta moves.</p>
+            </div>
+            <div class="pricing-card">
+              <span class="label">30–40 miles</span>
+              <h3><strong>$150</strong></h3>
+              <p>Maximum app distance. Beyond 40 miles? Call for options.</p>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="how-it-works">
+        <h2>How FastMove works</h2>
+        <ol>
+          <li><strong>Call or text</strong> <a href="tel:+12293375465" style="color:var(--fastmove-navy);text-decoration:none;">(229) 337‑5465</a> with your pickup & drop-off locations.</li>
+          <li><strong>Get your flat fee</strong> based on distance (0–40 miles from pickup to drop-off).</li>
+          <li><strong>We pick up & deliver</strong> your items quickly and carefully.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      FASTMOVE by KSD • Local moving & delivery • Lawrenceville, GA • Call or text (229) 337‑5465
+    </footer>
+  </div>
+</body>
+</html>
